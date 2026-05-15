@@ -1,0 +1,34 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# .dockerignore
+#
+# Works just like .gitignore but for the Docker build context.
+# Files listed here are NEVER sent to the Docker daemon, which means:
+#   1. Faster builds (smaller context = less data uploaded)
+#   2. The COPY . . instruction in the Dockerfile won't include these paths
+#   3. Secrets like .env never end up inside an image accidentally
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Local dependencies — the Dockerfile runs `npm ci` inside the image
+node_modules
+
+# Compiled output — the Dockerfile compiles fresh from source
+dist
+
+# Local env file — secrets should be injected at runtime (docker compose environment:)
+.env
+
+# Git history — not needed in the image
+.git
+.gitignore
+
+# Generated Prisma client — no longer used, but exclude to be safe
+generated
+
+# Drizzle migration snapshots — runtime migrations are handled separately
+drizzle
+
+# Editor config
+.vscode
+
+# Test / coverage artefacts
+coverage
