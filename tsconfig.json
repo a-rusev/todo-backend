@@ -43,5 +43,5 @@
     "esModuleInterop": true
   },
   // Exclude generated Prisma artefacts and compiled output from compilation
-  "exclude": ["node_modules", "dist", "generated"]
+  "exclude": ["node_modules", "dist", "generated", "__tests__"]
 }

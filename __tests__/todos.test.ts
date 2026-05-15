@@ -7,7 +7,7 @@ import { users } from "../db/schema.js";
 vi.mock("../db/index.js");
 
 describe("Todo API Endpoints", () => {
-  const mockDb = db as ReturnType<typeof vi.mocked>;
+  const mockDb = db as any;
 
   beforeEach(() => {
     vi.clearAllMocks();
