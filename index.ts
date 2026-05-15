@@ -6,11 +6,9 @@ import { eq } from "drizzle-orm";
 import { db } from "./db/index.js";
 import { users } from "./db/schema.js";
 
-const app = express();
+export const app = express();
 app.use(express.json());
 app.use(cors());
-
-const PORT = Number(process.env.PORT ?? 3005);
 
 // GET all todos
 app.get("/todos", async (_req: Request, res: Response) => {
@@ -48,6 +46,8 @@ app.delete("/todos/:id", async (req: Request, res: Response) => {
   await db.delete(users).where(eq(users.id, Number(id)));
   res.status(204).send();
 });
+
+const PORT = Number(process.env.PORT ?? 3005);
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

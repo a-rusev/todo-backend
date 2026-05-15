@@ -7,9 +7,10 @@
 
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
-    "module": "nodenext",
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "target": "esnext",
-    "types": ["node"],
+    "types": ["node", "jest"],
     // For nodejs:
     // "lib": ["esnext"],
     // "types": ["node"],
@@ -39,7 +40,8 @@
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "esModuleInterop": true
   },
   // Exclude generated Prisma artefacts and compiled output from compilation
   "exclude": ["node_modules", "dist", "generated"]
